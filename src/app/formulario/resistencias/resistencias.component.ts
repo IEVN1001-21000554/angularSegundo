@@ -7,9 +7,9 @@ interface Resistencias {
   color2: string;
   color3: string;
   tolerancia: string;
-  valor: number;
-  valorMaximo: number;
-  valorMinimo: number;
+  // valor: number;
+  // valorMaximo: number;
+  // valorMinimo: number;
 }
  
 @Component({
@@ -50,9 +50,9 @@ export default class ResistenciasComponent implements OnInit {
       color2,
       color3,
       tolerancia,
-      valor,
-      valorMaximo,
-      valorMinimo
+        // valor,
+        // valorMaximo,
+        // valorMinimo
     };
 
     this.resistencias.push(nuevaResistencia);
@@ -73,9 +73,9 @@ export default class ResistenciasComponent implements OnInit {
   }
 
   calcularTolerancia(valor: number, tolerancia: string): { valorMaximo: number, valorMinimo: number } {
-    let factorTolerancia = tolerancia === 'oro' ? 0.05 : 0.10;
-    const valorMaximo = valor + (valor * factorTolerancia);
-    const valorMinimo = valor - (valor * factorTolerancia);
+    let ValorTolerancia = tolerancia === 'oro' ? 0.05 : 0.10;
+    const valorMaximo = valor + (valor * ValorTolerancia);
+    const valorMinimo = valor - (valor * ValorTolerancia);
     return { valorMaximo, valorMinimo };
   }
 
