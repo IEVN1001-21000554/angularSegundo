@@ -31,14 +31,6 @@ export default class EmpleadosComponent implements OnInit {
       edad: [''],
       horas: ['']
     });
-    this.cargarEmpleados();
-  }
-
-  cargarEmpleados(): void {
-    const empleadosGuardados = localStorage.getItem('empleados');
-    if (empleadosGuardados) {
-      this.empleados = JSON.parse(empleadosGuardados);
-    }
   }
 
   guardarEmpleados(): void {
@@ -47,9 +39,18 @@ export default class EmpleadosComponent implements OnInit {
 
   onSubmit(): void {
     const nuevoEmpleado: Empleado = this.empleadoForm.value;
-    this.empleados.push(nuevoEmpleado);
-    this.guardarEmpleados();
+    const empleadosGuardados = localStorage.getItem('empleados');
+    const empleados = empleadosGuardados ? JSON.parse(empleadosGuardados) : [];
+    empleados.push(nuevoEmpleado);
+    localStorage.setItem('empleados', JSON.stringify(empleados));
     this.empleadoForm.reset();
+  }
+
+  imprimirEmpleados(): void {
+    const empleadosGuardados = localStorage.getItem('empleados');
+    if (empleadosGuardados) {
+      this.empleados = JSON.parse(empleadosGuardados);
+    }
   }
 
   buscarEmpleado(): void {
@@ -79,19 +80,13 @@ export default class EmpleadosComponent implements OnInit {
 
   calcularPagoNormal(horas: number): number {
     const tarifaNormal = 70;
-    let horasNormales = horas;
-    if (horas > 40) {
-      horasNormales = 40;
-    }
+    let horasNormales = horas > 40 ? 40 : horas;
     return horasNormales * tarifaNormal;
   }
 
   calcularPagoExtra(horas: number): number {
     const tarifaExtra = 140;
-    let horasExtras = 0;
-    if (horas > 40) {
-      horasExtras = horas - 40;
-    }
+    let horasExtras = horas > 40 ? horas - 40 : 0;
     return horasExtras * tarifaExtra;
   }
 
