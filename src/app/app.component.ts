@@ -5,13 +5,15 @@ import { TemapComponent } from './tem/temap/temap.component';
 import { TemahComponent } from './tem/temah/temah.component';
 import { ListMessageComponent } from './tem/list-message/list-message.component';
 import { AddMessageComponent } from './tem/add-message/add-message.component';
+import { NavbarComponent } from './navbar/navbar.component';
 // import { Ejemplo1Component } from "./formulario/ejemplo1/ejemplo1.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // imports: [RouterOutlet, Ejemplo1Component],
-  imports: [RouterOutlet, ResistenciasComponent, TemapComponent, TemahComponent, ListMessageComponent, AddMessageComponent],
+  imports: [RouterOutlet, ResistenciasComponent, TemapComponent, TemahComponent, 
+    ListMessageComponent, AddMessageComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
