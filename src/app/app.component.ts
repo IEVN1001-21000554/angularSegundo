@@ -12,7 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   selector: 'app-root',
   standalone: true,
   // imports: [RouterOutlet, Ejemplo1Component],
-  imports: [RouterOutlet, ResistenciasComponent, TemapComponent, TemahComponent, 
+  imports: [RouterOutlet ,ResistenciasComponent, TemapComponent, TemahComponent, 
     ListMessageComponent, AddMessageComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

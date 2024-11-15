@@ -1,6 +1,6 @@
 import { Component,  OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AlumnoFilterPipe } from '../alumnos-filter.pipe';
+import { AlumnoFilterPipe } from '../interfaces/alumnos-filter.pipe';
 import { CommonModule } from '@angular/common';
 import { AlumnosUtl } from '../interfaces/alumnosutl';
 import { ProyectoapiService } from '../proyectoapi.service';
